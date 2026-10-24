@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --wmsu-crimson: #B5122B;
+  --wmsu-crimson-bright: #D7193F;
+  --wmsu-crimson-dark: #79091B;
+  --wmsu-crimson-deep: #4D0612;
+  --wmsu-crimson-soft: #FFF0F3;
+  --wmsu-crimson-glow: rgba(181, 18, 43, .28);
+  --wmsu-white: #FFFFFF;
+  --wmsu-ink: #20151A;
+  --wmsu-muted: #776A6E;
+  --wmsu-line: #F0DDE1;
+  --wmsu-gradient: linear-gradient(135deg, #D7193F 0%, #B5122B 48%, #79091B 100%);
+  --wmsu-shadow: 0 18px 50px rgba(88, 8, 24, .10);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; padding: 0;
+  color: var(--wmsu-ink);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(215,25,63,.08), transparent 32rem),
+    radial-gradient(ellipse at 100% 18%, rgba(181,18,43,.055), transparent 28rem),
+    #FFF9FA;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { color: #fff; background: var(--wmsu-crimson); }
+
+.crimson-gradient-bg { background: var(--wmsu-gradient) !important; }
+.crimson-glass {
+  background: linear-gradient(135deg, rgba(255,255,255,.94), rgba(255,240,243,.82));
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(181,18,43,.13);
+  box-shadow: 0 12px 36px rgba(88,8,24,.07);
+}
+
+.btn-crimson {
+  position: relative; isolation: isolate; overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14); border-radius: 12px;
+  background: var(--wmsu-gradient) !important; color: #fff !important;
+  box-shadow: 0 8px 20px var(--wmsu-crimson-glow); font-weight: 800;
+  transition: transform .22s ease, box-shadow .22s ease, filter .22s ease;
+}
+.btn-crimson::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  transform: translateX(-120%) skewX(-18deg);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.24), transparent);
+  transition: transform .55s ease;
+}
+.btn-crimson:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 13px 28px rgba(181,18,43,.30); filter: saturate(1.12);
+}
+.btn-crimson:hover::before { transform: translateX(120%) skewX(-18deg); }
+.btn-crimson:active { transform: translateY(0) scale(.985); }
+
+.btn-crimson-outline {
+  border: 1.5px solid var(--wmsu-crimson); border-radius: 12px;
+  color: var(--wmsu-crimson) !important; background: rgba(255,255,255,.78);
+  transition: all .22s ease;
+}
+.btn-crimson-outline:hover {
+  color: #fff !important; background: var(--wmsu-gradient);
+  border-color: transparent; box-shadow: 0 8px 22px var(--wmsu-crimson-glow);
+  transform: translateY(-1px);
+}
+
+.bg-white.rounded-2xl, .bg-white.rounded-3xl, .bg-white.rounded-xl {
+  border-color: rgba(181,18,43,.10) !important;
+  box-shadow: 0 8px 28px rgba(68,12,26,.045);
+  transition: border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+.bg-white.rounded-2xl:hover, .bg-white.rounded-3xl:hover, .bg-white.rounded-xl:hover {
+  border-color: rgba(181,18,43,.22) !important; box-shadow: var(--wmsu-shadow);
+}
+
+input, select, textarea { accent-color: var(--wmsu-crimson); }
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--wmsu-crimson-bright) !important;
+  box-shadow: 0 0 0 4px rgba(215,25,63,.10);
+}
+button, a { -webkit-tap-highlight-color: transparent; }
+button { cursor: pointer; }
+button:focus-visible, a:focus-visible {
+  outline: 3px solid rgba(215,25,63,.42); outline-offset: 3px;
+}
+
+.wmsu-photo-hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 250px; padding: clamp(28px,5vw,56px); border-radius: 28px;
+  color: #fff;
+  background:
+    linear-gradient(110deg, rgba(77,6,18,.94) 0%, rgba(121,9,27,.83) 48%, rgba(181,18,43,.38) 100%),
+    url('https://commons.wikimedia.org/wiki/Special:FilePath/Western_Mindanao_State_University.jpg') center 48% / cover no-repeat;
+  box-shadow: 0 24px 60px rgba(77,6,18,.22);
+}
+.wmsu-photo-hero::after {
+  content: ""; position: absolute; z-index: -1; width: 340px; height: 340px;
+  right: -90px; bottom: -190px; border: 1px solid rgba(255,255,255,.26);
+  border-radius: 50%; box-shadow: 0 0 0 32px rgba(255,255,255,.045), 0 0 0 64px rgba(255,255,255,.035);
+}
+.wmsu-photo-hero h1, .wmsu-photo-hero h2 {
+  color: #fff; letter-spacing: -.045em; line-height: 1.08;
+}
+.wmsu-photo-hero p { max-width: 680px; color: rgba(255,255,255,.86); line-height: 1.75; }
+
+.wmsu-photo-tile {
+  position: relative; min-height: 180px; overflow: hidden; border-radius: 18px;
+  background-color: #F8DDE3; background-position: center; background-size: cover;
+  box-shadow: inset 0 -70px 70px -50px rgba(50,0,10,.65);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.wmsu-photo-tile:hover { transform: translateY(-4px); box-shadow: 0 18px 35px rgba(77,6,18,.18); }
+.wmsu-photo-tile--campus {
+  background-image: url('https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1400&q=85');
+}
+.wmsu-photo-tile--volunteer {
+  background-image: url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1400&q=85');
+}
+.wmsu-photo-tile--environment {
+  background-image: url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=1400&q=85');
+}
+.wmsu-photo-tile--education {
+  background-image: url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1400&q=85');
+}
+.wmsu-photo-tile img { display: block; width: 100%; height: 100%; min-height: inherit; object-fit: cover; }
+
+.wmsu-kicker {
+  display: inline-flex; align-items: center; gap: 8px; padding: 7px 12px;
+  border: 1px solid rgba(255,255,255,.28); border-radius: 999px; color: #fff;
+  background: rgba(255,255,255,.12); backdrop-filter: blur(12px);
+  font-size: .72rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase;
+}
+
+.bg-red-50 { background-color: var(--wmsu-crimson-soft) !important; }
+.text-\[\#DC143C\], .text-red-600 { color: var(--wmsu-crimson-bright) !important; }
+.text-\[\#990000\] { color: var(--wmsu-crimson-dark) !important; }
+.border-red-100, .border-red-200 { border-color: #F1CDD5 !important; }
+
+.cert-watermark {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%) rotate(-15deg); opacity: .045;
+  pointer-events: none; white-space: nowrap;
+  font-size: clamp(5rem,17vw,14rem); font-weight: 900; letter-spacing: -.07em;
+  color: var(--wmsu-crimson-dark);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important; transition-duration: .01ms !important;
+    animation-duration: .01ms !important; animation-iteration-count: 1 !important;
+  }
+}
+@media (max-width: 640px) {
+  .wmsu-photo-hero { min-height: 220px; border-radius: 20px; padding: 26px 22px; background-position: center; }
+  .bg-white.rounded-2xl, .bg-white.rounded-3xl { border-radius: 16px; }
+}
+@media print {
+  body { background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .no-print { display: none !important; }
+  .print-only { display: block !important; }
+  .cert-watermark { opacity: .04; }
+  .btn-crimson, .crimson-glass { box-shadow: none !important; }
+}
